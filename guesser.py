@@ -1,7 +1,7 @@
 import random
 
 again = "n"
-values = []  # Definición de la lista values
+values = []
 
 def reset():
     global again
@@ -14,9 +14,23 @@ def welcome():
     play()
 
 def play():
+    difficulty = int(input("""Choose a difficulty level:
+1. Easy
+2. Medium
+3. Hard
+>"""))
     while True:
+
         numberFin = [1, 2, 3, 4, 5]
-        numero_intentos = 10
+
+        if difficulty == 1:
+            numero_intentos = 10
+        elif difficulty == 2:
+            numero_intentos = 7
+        elif difficulty == 3:
+            numero_intentos = 5
+        else:
+            numero_intentos = 10
         win = False
 
         values.clear()  # Limpiar la lista de valores para cada nuevo juego
@@ -28,7 +42,9 @@ def play():
             correcto_num = int(correcto)
 
         while not win and correcto_num != numberFin and numero_intentos > 0:
-            number = int(input("Hurry up! Guess the safe lockcode: "))
+            number = int(input(f"""Hurry up! Guess the 5 digits safe lockcode in less than {numero_intentos} attempts: 
+            
+>"""))
             # Calcula cada dígito por separado
             n1 = number // 10000
             n2 = (number % 10000) // 1000
@@ -47,14 +63,14 @@ def play():
                 reset()
                 break  # Salir del bucle interno si el jugador adivina el número
             elif number >= 99999:
-                print("Don't be a cheater! The number you're looking for is between 00000 y 99999")
+                print("Don't be a cheater! The code you're looking for is between 00000 y 99999")
                 numero_intentos -= 1
             else:
                 numero_intentos -= 1
                 if numero_intentos == 0:
-                    print("Sadly, you exceeded the number of attempts.")
+                    print("Sadly, you exceeded the number of attempts and the cops caught you :(")
                     print("The correct lockcode was ", correcto_num)
-                    print(f"You are at {correcto_num - number} from the correct number.")
+                    print(f"You were {correcto_num - number} numbers away from the correct code.")
                     reset()
                     break  # Salir del bucle interno si se excede el número máximo de intentos
 
@@ -86,9 +102,9 @@ def play():
 
             print(f"{n1rev}   {n2rev}   {n3rev}   {n4rev}   {n5rev}")
             if correcto_num > number:
-                print("You hear some sounds coming from the lock. The lockcode seems to be greater, fellow robber.")
+                print("You can hear some sounds coming from the lock. Your intuition says the lockcode seems to be greater, fellow robber.")
             elif correcto_num < number:
-                print("You can hear some sounds coming from the lock. The lockcode seems to be lesser, fellow robber.")
+                print("You can hear some sounds coming from the lock. Your intuition says the code seems to be lesser, fellow robber.")
             print(f"You have {numero_intentos} attempts left.")
 
         if again == "n":
