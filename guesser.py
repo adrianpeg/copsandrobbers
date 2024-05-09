@@ -2,6 +2,9 @@ import random
 import pygame
 import time
 
+#to do
+#music on or off
+
 again = "n"
 values = []
 difficulty = 1
