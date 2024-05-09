@@ -59,7 +59,23 @@ def play():
             n5rev = n5 == values[4]
 
             if correcto_num == number:
-                print("Gratz fellow robber! You guessed it!")
+                print("""
+                                        ⠀⠀⠀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                                ⠀⠀⠀⠀⠀⠀⢯⠙⠩⠀⡇⠊⠽⢖⠆⠀⠀⠀⠀⠀
+                                ⠀⠀⠀⠀⠀⠀⠀⠱⣠⠀⢁⣄⠔⠁⠀⠀⠀⠀⠀⠀
+                                ⠀⠀⠀⠀⠀⠀⠀⠀⣷⣶⣾⣾⠀⠀⠀⠀⠀⠀⠀⠀
+                                ⠀⠀⠀⠀⠀⠀⢀⡔⠙⠈⢱⡟⣧⠀⠀⠀⠀⠀⠀⠀
+                                ⠀⠀⠀⠀⠀⡠⠊⠀⠀⣀⡀⠀⠘⠕⢄⠀⠀⠀⠀⠀
+                                ⠀⠀⠀⢀⠞⠀⠀⢀⣠⣿⣧⣀⠀⠀⢄⠱⡀⠀⠀⠀
+                                ⠀⠀⡰⠃⠀⠀⢠⣿⠿⣿⡟⢿⣷⡄⠀⠑⢜⢆⠀⠀
+                                ⠀⢰⠁⠀⠀⠀⠸⣿⣦⣿⡇⠀⠛⠋⠀⠨⡐⢍⢆⠀
+                                ⠀⡇⠀⠀⠀⠀⠀⠙⠻⣿⣿⣿⣦⡀⠀⢀⠨⡒⠙⡄
+                                ⢠⠁⡀⠀⠀⠀⣤⡀⠀⣿⡇⢈⣿⡷⠀⠠⢕⠢⠁⡇
+                                ⠸⠀⡕⠀⠀⠀⢻⣿⣶⣿⣷⣾⡿⠁⠀⠨⣐⠨⢀⠃
+                                ⠀⠣⣩⠘⠀⠀⠀⠈⠙⣿⡏⠁⠀⢀⠠⢁⡂⢉⠎⠀
+                                ⠀⠀⠈⠓⠬⢀⣀⠀⠀⠈⠀⠀⠀⢐⣬⠴⠒⠁⠀⠀
+                                ⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀    
+                        Gratz fellow robber! You guessed it!""")
                 reset()
                 break  # Salir del bucle interno si el jugador adivina el número
             elif number >= 99999:
@@ -68,7 +84,28 @@ def play():
             else:
                 numero_intentos -= 1
                 if numero_intentos == 0:
-                    print("Sadly, you exceeded the number of attempts and the cops caught you :(")
+                    print("""
+                                              ▒▒▒▒▒▒                                        
+                                          ▒▒▒▒▒▒▒▒▒▒                                    
+                                  ██████████▒▒▒▒▒▒▒▒████                                
+                                ░░░░██████████▒▒▒▒▒▒██████                              
+                                ░░░░░░██████████████████████                            
+                              ░░░░░░░░████████████████████████                          
+                            ░░░░░░░░██████░░░░░░██░░░░░░░░████                          
+                  ░░░░░░░░░░░░░░░░██████░░░░░░░░██░░░░░░░░████                          
+                ░░░░░░░░░░░░░░░░██████░░░░░░░░░░██░░░░░░░░████░░                        
+                ░░░░░░░░░░░░░░████████████████████████████████░░░░                      
+              ██░░░░░░░░░░░░░░░░██████████░░██░░░░██░░████████░░░░░░                    
+              ████░░░░░░░░░░░░░░░░██████░░░░░░░░░░░░░░░░██████░░░░░░░░                  
+              ████████░░░░▒▒▒▒░░░░██████░░░░░░░░░░░░░░░░████░░░░░░░░░░░░                
+                ████████▒▒▒▒▒▒▒▒░░████████░░░░░░░░░░░░████▒▒▒▒▒▒▒▒░░░░░░                
+                  ████▒▒▒▒░░░░▒▒▒▒████████████████████████▒▒░░░░▒▒░░░░                  
+                      ▒▒▒▒░░░░▒▒▒▒                ██████▒▒▒▒░░░░▒▒▒▒                    
+                      ▒▒▒▒▒▒▒▒▒▒▒▒                      ▒▒▒▒▒▒▒▒▒▒▒▒                    
+                        ▒▒▒▒▒▒▒▒                          ▒▒▒▒▒▒▒▒                      
+                                       
+                Cops have arrived before you were able to get the money :(
+                        """)
                     print("The correct lockcode was ", correcto_num)
                     print(f"You were {correcto_num - number} numbers away from the correct code.")
                     reset()
@@ -102,9 +139,9 @@ def play():
 
             print(f"{n1rev}   {n2rev}   {n3rev}   {n4rev}   {n5rev}")
             if correcto_num > number:
-                print("You can hear some sounds coming from the lock. Your intuition says the lockcode seems to be greater, fellow robber.")
+                print("You can hear some sounds coming from the lock. Your intuition says the lockcode could be greater, fellow robber.")
             elif correcto_num < number:
-                print("You can hear some sounds coming from the lock. Your intuition says the code seems to be lesser, fellow robber.")
+                print("You can hear some sounds coming from the lock. Your intuition says the code could be lesser, fellow robber.")
             print(f"You have {numero_intentos} attempts left.")
 
         if again == "n":

@@ -126,6 +126,39 @@
                   </llm>
                 </llm>
               </chat>
+              <chat>
+                <internalId value="5163a208-f6e8-4d77-b88e-32dfc4a1ca7b" />
+                <llm>
+                  <llm>
+                    <model value="anthropic/claude-3-sonnet-20240229" />
+                    <provider value="Anthropic" />
+                    <title value="Claude 3 Sonnet" />
+                  </llm>
+                </llm>
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="Review the shared code context and configurations to identify the test framework and libraries in use. Then, generate a suite of multiple unit tests for the functions in &lt;selected&gt; using the detected test framework and libraries. Be sure to import the function being tested. Follow the same patterns as any shared context. Only add packages, imports, dependencies, and assertions if they are used in the shared code. Pay attention to the file path of each shared context to see if test for &lt;selected&gt; already exists. If one exists, focus on generating new unit tests for uncovered cases. If none are detected, import common unit test libraries for {languageName}. Focus on validating key functionality with simple and complete assertions. Only include mocks if one is detected in the shared code. Before writing the tests, identify which test libraries and frameworks to import, e.g. 'No new imports needed - using existing libs' or 'Importing test framework that matches shared context usage' or 'Importing the defined framework', etc. Then briefly summarize test coverage and any limitations. At the end, enclose the full completed code for the new unit tests, including all necessary imports, in a single markdown codeblock. No fragments or TODO. The new tests should validate expected functionality and cover edge cases for &lt;selected&gt; with all required imports, including importing the function being tested. Do not repeat existing tests." />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="After reviewing the shared code context and configurations, I've identified that the test framework and libraries in use are:&#10;&#10;Importing the defined framework: pytest&#10;&#10;The shared code context does not include any existing unit tests for the `&lt;selected&gt;` function(s). Therefore, I will generate a new suite of unit tests to validate the key functionality and cover edge cases.&#10;&#10;Test Coverage and Limitations:&#10;- The generated tests will cover basic functionality and common edge cases for the `&lt;selected&gt;` function(s).&#10;- However, without additional context or requirements, the tests may not cover all possible scenarios or complex edge cases.&#10;- The tests assume that the function(s) being tested have no external dependencies or side effects.&#10;&#10;Here is the completed code for the new unit tests, including all necessary imports:&#10;&#10;```python&#10;import pytest&#10;from path.to.module import &lt;selected&gt;&#10;&#10;def test_&lt;selected&gt;_basic_case():&#10;    # Test the basic functionality of &lt;selected&gt;&#10;    result = &lt;selected&gt;(input_data)&#10;    assert result == expected_output&#10;&#10;def test_&lt;selected&gt;_edge_case_1():&#10;    # Test an edge case scenario for &lt;selected&gt;&#10;    result = &lt;selected&gt;(edge_case_input_1)&#10;    assert result == expected_output_1&#10;&#10;def test_&lt;selected&gt;_edge_case_2():&#10;    # Test another edge case scenario for &lt;selected&gt;&#10;    result = &lt;selected&gt;(edge_case_input_2)&#10;    assert result == expected_output_2&#10;&#10;def test_&lt;selected&gt;_invalid_input():&#10;    # Test the behavior of &lt;selected&gt; with invalid input&#10;    with pytest.raises(ValueError):&#10;        &lt;selected&gt;(invalid_input)&#10;&#10;def test_&lt;selected&gt;_empty_input():&#10;    # Test the behavior of &lt;selected&gt; with empty input&#10;    result = &lt;selected&gt;([])&#10;    assert result == expected_output_empty&#10;```&#10;&#10;Note: You will need to replace `&lt;selected&gt;`, `input_data`, `expected_output`, `edge_case_input_1`, `expected_output_1`, `edge_case_input_2`, `expected_output_2`, `invalid_input`, and `expected_output_empty` with the appropriate values based on the function(s) being tested and the expected behavior." />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2024-05-09T01:55:22.284779" />
+              </chat>
+              <chat>
+                <internalId value="d2992b07-b539-4701-b4df-92e70da5dbef" />
+                <llm>
+                  <llm>
+                    <model value="anthropic/claude-3-sonnet-20240229" />
+                    <provider value="Anthropic" />
+                    <title value="Claude 3 Sonnet" />
+                  </llm>
+                </llm>
+              </chat>
             </list>
           </chats>
           <defaultLlm>
