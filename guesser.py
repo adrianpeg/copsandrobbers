@@ -1,12 +1,29 @@
 import random
+import pygame
+import time
 
 again = "n"
 values = []
+difficulty = 1
+
+pygame.mixer.init()
+bad_sound = pygame.mixer.Sound(file= "fx/lofi eff bad.mp3")
+good_sound = pygame.mixer.Sound(file= "fx/lofi eff good.mp3")
+
+back_music = pygame.mixer.music.load("fx/lofi.mp3")
+pygame.mixer.music.set_volume(0.7)
+
+pygame.mixer.music.play(-1, 0.0, 3000)
 
 def reset():
-    global again
-    again = input("¿Do you want to try again? (y/n)    ")
-    return again
+    global again, difficulty
+    again = input("Do you want to try again? (y/n)    ")
+    difficulty = int(input("""Choose a difficulty level:
+        1. Easy
+        2. Medium
+        3. Hard
+        >"""))
+    return again, difficulty
 
 def welcome():
     print("Welcome to Cops and Robbers!")
@@ -14,6 +31,7 @@ def welcome():
     play()
 
 def play():
+    global difficulty
     difficulty = int(input("""Choose a difficulty level:
 1. Easy
 2. Medium
@@ -59,6 +77,7 @@ def play():
             n5rev = n5 == values[4]
 
             if correcto_num == number:
+                pygame.mixer.Sound.play(good_sound)
                 print("""
                                         ⠀⠀⠀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
                                 ⠀⠀⠀⠀⠀⠀⢯⠙⠩⠀⡇⠊⠽⢖⠆⠀⠀⠀⠀⠀
@@ -106,6 +125,9 @@ def play():
                                        
                 Cops have arrived before you were able to get the money :(
                         """)
+                    pygame.mixer.Sound.play(bad_sound)
+                    time.sleep(2)
+                    pygame.mixer.Sound.play(bad_sound)
                     print("The correct lockcode was ", correcto_num)
                     print(f"You were {correcto_num - number} numbers away from the correct code.")
                     reset()
